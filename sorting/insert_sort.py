@@ -1,9 +1,10 @@
-def insert_sort(arr):
+def sort(arr):
     if len(arr) <= 1:
         return arr
-    for i, item in enumerate(arr):
-        print(f"{i} -> {item}")
-
-
-if __name__ == '__main__':
-    insert_sort([3, 2, 1])
+    length = len(arr)
+    for i in range(1, length):
+        j = i
+        while j > 0 and arr[j] < arr[j - 1]:
+            arr[j], arr[j - 1] = arr[j - 1], arr[j]
+            j = j - 1
+    return arr

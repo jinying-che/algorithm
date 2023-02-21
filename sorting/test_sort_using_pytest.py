@@ -1,16 +1,7 @@
 import insert_sort
-import pytest
 
 
-# Define a fixture that provides a list of sorting functions to test
-@pytest.fixture
-def sorting_functions():
-    return [insert_sort.sort]
-
-
-# Define a table-driven test case with multiple scenarios
-@pytest.mark.parametrize("sorting_func", sorting_functions())
-def test_sorting(sorting_func):
+def test_sorting():
     # Define test cases with custom names
     test_cases = [
         ([], [], "empty list"),
@@ -19,4 +10,4 @@ def test_sorting(sorting_func):
     ]
     # Test each scenario
     for input_data, expected_output, name in test_cases:
-        assert sorting_func(input_data) == expected_output, f"{name} failed"
+        assert insert_sort.sort(input_data) == expected_output, f"{name} failed"
